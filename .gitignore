@@ -7,7 +7,7 @@
 /docs/build/
 /docs/site/
 
-/problems/ps1/*.aux
-/problems/ps1/*.log
-/problems/ps1/*.out
-/problems/ps1/*.synctex.gz
+/problems/ps1/Bortoff_01.aux
+/problems/ps1/Bortoff_01.log
+/problems/ps1/Bortoff_01.out
+/problems/ps1/Bortoff_01.synctex.gz
