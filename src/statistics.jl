@@ -1,5 +1,7 @@
 using Statistics
 
+export calcRSquared, leastSquaresRegression
+
 function calcRSquared(actual::Vector{Float64}, estimated::Vector{Float64})::Float64
 	@assert length(actual) == length(estimated)
 	ssr = sum((actual - estimated) .^ 2);
