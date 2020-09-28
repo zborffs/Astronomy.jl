@@ -227,15 +227,42 @@
  	\textbf{Determine the mass of Jupiter} assuming (1) the semi-major axis of Jupiter's orbit is \(5.20\) A.U.; (2) the period of Ganymede's (the largest moon of Jupiter) orbit is 170 hours; (3) when Jupiter is at opposition Ganymede reaches a maximum of 5.9 arcminutes from Jupiter; (4) Ganymede's orbit is a circle. (Marks: 5)\\
  	
  	\textbf{Solution}
+ 	
+ 	
+ 	First we must determine the semi-major axis of the Jupiter-Ganymede orbit. Let \(a\) be the semi-major axis. Let \(\delta\) denote the angle in arcminutes denoting the apparent distance between Jupiter and Ganymede. Then,
+ 	
+ 	\[
+		\begin{split}
+			tan(\delta) = \frac{a}{5.20 - 1.0}
+			\Longleftrightarrow a = 4.20 \hspace{3pt} tan(\delta) [AU] \approx 1.1\times10^{9} [m]
+		\end{split}
+	\]
+		
+	Let \(P\) denote the period of Ganymede. Let \(m_J\) denote the mass of Jupiter, and \(m_G\) denote the mass of Ganymede. We can assume that the mass of Jupiter is much, much bigger than that of Ganymede (i.e. \(m_J \gg m_G\)). Therefore, when we apply the generalized form of Kepler's \(3\)rd Law to determine Jupiter's mass, the \(m_J\) term will absorb the \(m_G\).:
+	
+	\[
+		\begin{split}
+			(m_1+m_2)P^2=\frac{4\pi^2}{G}a^3
+			\Longleftrightarrow m_J=\frac{4\pi^2}{G} \frac{a^3}{P^2} \approx 2.0\times10^{27} [kg]
+		\end{split}
+	\]
 
 \end{homeworkProblem}
 
 \pagebreak
 
 \begin{homeworkProblem}
- 	The spectrum of a star is recorded (i.e. observed). The wavelength of the "Balmer alpha" spectral line of hydrogen is measured to be at \(655.9\) nanometers (nm). If the "rest wavelength" of this spectral line is \(656.3\) nm then \textbf{what is the radial velocity of this start}? \textit{Think carefully about "significant figures" in this question. It's a bit tricky. Full marks requires exactly the correct number of significant figures in the final answer...} (Marks: 3)\\
+ 	The spectrum of a star is recorded (i.e. observed). The wavelength of the \enquote{Balmer alpha} spectral line of hydrogen is measured to be at \(655.9\) nanometers (nm). If the \enquote{rest wavelength} of this spectral line is \(656.3\) nm then \textbf{what is the radial velocity of this star}? \textit{Think carefully about \enquote{significant figures} in this question. It's a bit tricky. Full marks requires exactly the correct number of significant figures in the final answer...} (Marks: 3)\\
  	
  	\textbf{Solution}
+ 	
+ 	Let \(\lambda_m\) be the Doppler shifted wavelength. Let \(\lambda_r\) be the at rest wavelength. Let \(v_{rad}\) be the radial velocity. Assuming that \(v_{rad} \ll c\), then we can apply the following equation:
+ 	
+ 	\[
+		\begin{split}
+			v_{rad}=c \frac{\lambda_m - \lambda_r}{\lambda_r} = (2.99792458\times10^8) \frac{0.4}{656.3}\approx200,000 \hspace{3pt} [m/s]
+		\end{split}
+	\]
 
 \end{homeworkProblem}
 \pagebreak
