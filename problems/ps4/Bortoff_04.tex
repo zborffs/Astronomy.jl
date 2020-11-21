@@ -1,0 +1,233 @@
+\documentclass{article}
+
+\usepackage{fancyhdr}
+\usepackage{extramarks}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage{tikz}
+\usepackage[plain]{algorithm}
+\usepackage{algpseudocode}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=blue,
+    urlcolor=blue
+}
+
+\usetikzlibrary{automata,positioning}
+
+%
+% Basic Document Settings
+%
+
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+
+\linespread{1.1}
+
+\pagestyle{fancy}
+\lhead{\hmwkAuthorName}
+\chead{\hmwkClass\ (\hmwkClassInstructor): \hmwkTitle}
+\rhead{\firstxmark}
+\lfoot{\lastxmark}
+\cfoot{\thepage}
+
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\setlength\parindent{0pt}
+
+%
+% Create Problem Sections
+%
+
+\newcommand{\enterProblemHeader}[1]{
+    \nobreak\extramarks{}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+}
+
+\newcommand{\exitProblemHeader}[1]{
+    \nobreak\extramarks{Problem \arabic{#1} (continued)}{Problem \arabic{#1} continued on next page\ldots}\nobreak{}
+    \stepcounter{#1}
+    \nobreak\extramarks{Problem \arabic{#1}}{}\nobreak{}
+}
+
+\setcounter{secnumdepth}{0}
+\newcounter{partCounter}
+\newcounter{homeworkProblemCounter}
+\setcounter{homeworkProblemCounter}{1}
+\nobreak\extramarks{Problem \arabic{homeworkProblemCounter}}{}\nobreak{}
+
+%
+% Homework Problem Environment
+%
+% This environment takes an optional argument. When given, it will adjust the
+% problem counter. This is useful for when the problems given for your
+% assignment aren't sequential. See the last 3 problems of this template for an
+% example.
+%
+\newenvironment{homeworkProblem}[1][-1]{
+    \ifnum#1>0
+        \setcounter{homeworkProblemCounter}{#1}
+    \fi
+    \section{Problem \arabic{homeworkProblemCounter}}
+    \setcounter{partCounter}{1}
+    \enterProblemHeader{homeworkProblemCounter}
+}{
+    \exitProblemHeader{homeworkProblemCounter}
+}
+
+%
+% Homework Details
+%   - Title
+%   - Due date
+%   - Class
+%   - Section/Time
+%   - Instructor
+%   - Author
+%
+
+\newcommand{\hmwkTitle}{Assignment\ \#4}
+\newcommand{\hmwkDueDate}{November 3, 2020}
+\newcommand{\hmwkClass}{SCI 238}
+\newcommand{\hmwkClassInstructor}{Dr. Michael Fich}
+\newcommand{\hmwkAuthorName}{\textbf{Zach Bortoff}}
+
+%
+% Title Page
+%
+
+\title{
+    \vspace{2in}
+    \textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\
+    \normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate\ at 11:59pm}\\
+    \vspace{0.1in}\large{\textit{\hmwkClassInstructor}}
+    \vspace{3in}
+}
+
+\author{\hmwkAuthorName}
+\date{}
+
+\renewcommand{\part}[1]{\textbf{\large Part \Alph{partCounter}}\stepcounter{partCounter}\\}
+
+%
+% Various Helper Commands
+%
+
+% Useful for algorithms
+\newcommand{\alg}[1]{\textsc{\bfseries \footnotesize #1}}
+
+% For derivatives
+\newcommand{\deriv}[1]{\frac{\mathrm{d}}{\mathrm{d}x} (#1)}
+
+% For partial derivatives
+\newcommand{\pderiv}[2]{\frac{\partial}{\partial #1} (#2)}
+
+% Integral dx
+\newcommand{\dx}{\mathrm{d}x}
+
+% Alias for the Solution section header
+\newcommand{\solution}{\textbf{\large Solution}}
+
+% Probability commands: Expectation, Variance, Covariance, Bias
+\newcommand{\E}{\mathrm{E}}
+\newcommand{\Var}{\mathrm{Var}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\newcommand{\Bias}{\mathrm{Bias}}
+
+\begin{document}
+
+\maketitle
+
+\pagebreak
+
+\begin{homeworkProblem}
+	\textbf{Estimate the distance from the Sun where a comet nucleus begins to
+create a coma as the icy materials sublimate to gases.} The sublimation
+temperature for various comet constituents such as \(CO_2\) and \(H_2O\) are not well
+known in a vacuum but it is near \(150K\). One can make an estimate of the
+“equilibrium” temperature of a spherical object in the Solar System by
+calculating the temperature where the power from sunlight received by the day
+side is exactly balanced by the blackbody emission from the entire surface. (a) At
+what distance from the Sun is the equilibrium temperature found to be \(150K\)?
+(b) How do your results compare to the distances where comets are usually first
+detected? (Marks: 5)\\
+
+    \textbf{Solution}
+
+	(a.) This problem can be solved by first determining the temperature of the Sun from its luminosity and radius. Then, one can determine the distance to the comet by equating the fractional luminosity of the Sun that's absorbed by the comet to the comet's own luminosity and rearranging for the distance. \\
+	
+	Let \(d\) denote the distance of the comet to the Sun, \(T_{Comet}\) denote the equilibrium temperature of the comet,  \(R_{Sun}\) denote the radius of the Sun, \(L_{Sun}\) denote the luminosity of the Sun, and \(T_{Sun}\) denote the temperature of the Sun. \\
+	
+	The luminosity of the Sun is given by \(L_{Sun} = 4\pi R_{Sun}^2 \sigma T_{Sun}^4\).  We know the luminosity and the radius of the Sun from the equation sheet, so we can rearrange this equation to solve for the temperature:
+	 
+	 \[
+		\begin{split}
+			T_{Sun} = (\frac{L_{Sun}}{4\pi \sigma R_{Sun}^2})^{1/4} = (\frac{3.90\times 10^{26}}{4 \pi (5.67\times 10^{-8}) (6.96\times 10^8)^2})^{1/4} \approx 5797.80 \hspace{3pt} [K]
+		\end{split}
+	\]
+	
+	However, that energy is attenuated by a factor of \(4\pi d^2\) and only affects the circular cross-section of the comet, which, assuming its a perfect sphere, is \(\pi R_{Comet}^2\). So the total power absorbed by the comet is:
+	
+	\[
+		\begin{split}
+			P_{abs} = \frac{\pi R_{Comet}^2}{4\pi d^2} L_{Sun} = \frac{\pi \sigma R_{Sun}^2 R_{Comet}^2 T_{Sun}^4}{d^2}
+		\end{split}
+	\]
+	Finally, we equate this previous equation to the luminosity of the comet and rearrange for \(d\):
+	
+	\[
+		\begin{split}
+			L_{Comet} = 4 \pi \sigma R_{Comet}^2 T_{Comet}^4 = \frac{\pi \sigma R_{Sun}^2 R_{Comet}^2 T_{Sun}^4}{d^2}	\\
+			\Longleftrightarrow d = \frac{R_{Sun} T_{Sun}^2}{2 T_{Comet}^2} = \frac{(6.96\times 10^8)(5797.80)^2}{2 (150)^2} \approx 5.199 \times 10^{11} \hspace{3pt} [m] \approx 3.475 \hspace{3pt} [AU]
+		\end{split}
+	\]
+	
+	(b.) The results obtained from part (a) fall within the range of distances where comets are usually seen - around \(3-5 \hspace{3pt} [AU]\). So the answer in part (a) is reasonable.
+
+\end{homeworkProblem}
+
+\pagebreak
+
+
+\begin{homeworkProblem}
+ 	A star is observed with its brightness measured continuously and very
+precisely for several weeks. It is observed to dim by \(0.06\) per cent (i.e. to \(0.9994\)
+of normal brightness) every \(11.0\) days. From its spectrum we know that the star
+is identical to the Sun. (a) What is the radius of this planet, in Jupiter Radii? (b)
+What is the semi-major axis of the planet’s orbit? (Marks: 5)\\
+ 	
+ 	\textbf{Solution}
+ 	
+ 	(a) We can determine the radius of the planet by observing that, its cross-sectional area is roughly \(0.06\)\% of the cross-sectional area of its Sun. We are told that the star is identical to the Sun, so we know the radius of the star:\\ 	
+   \[
+	   \begin{split}
+		   \frac{4\pi R_{Planet}^2}{4\pi R_{Star}^2} = 0.0006\\		   
+		   \Longleftrightarrow R_{Planet} = \sqrt{0.0006 R_{Sun}^2} \approx 0.238 \hspace{3pt} [Jupiter \hspace{2pt} Radii]
+	   \end{split}
+   \]
+ 	(b.) The semi-major axis of the planet's orbit can be determined by applying Kepler's Law, which can be applied because the star in the problem is said to be identical to the Sun:
+ 	
+ 	\[
+ 		\begin{split}
+ 			P = 11 \hspace{3pt} [days] = 0.0301 \hspace{3pt} [Earth \hspace{2pt} Years]\\
+ 			\Longleftrightarrow a = P^{2/3} = 0.0968 [AU]
+ 		\end{split}
+ 	\]
+ 	
+	
+\end{homeworkProblem}
+
+\pagebreak
+
+\end{document}

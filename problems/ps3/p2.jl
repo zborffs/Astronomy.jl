@@ -3,6 +3,7 @@ import PhysicalConstants.CODATA2018: G
 
 Re = 1;
 Rm = 1.52;
+
 # Find
 # (a.) Draw the three orbits
 @png begin
@@ -31,5 +32,4 @@ P = uconvert(u"s", 2 * π * sqrt(a^3 / (G * MSun)))
 half = ustrip(P) / 2
 halfInMonths = half / 2.628e6
 
-ReUnit =
 v = uconvert(u"m/s", sqrt(G * MSun * (2u"AU^-1" - 1/a)))

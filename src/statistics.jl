@@ -16,7 +16,7 @@ function leastSquaresRegression(x::Vector{Float64}, y::Vector{Float64})::Tuple{F
 	x̄ = mean(x);
 	ȳ = mean(y);
 	m = cov(x, y) / cov(x);
-	b = μY - m * μX;
+	b = ȳ - m * x̄;
 
 	ŷ = x * m .+ b;
 	R² = calcRSquared(y, ŷ);
